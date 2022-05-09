@@ -2,22 +2,22 @@
 
 @section('content')
     
-    @include('partials.preloader')
+    @include('front.partials.preloader')
 
-    @include('partials.header')
+    @include('front.partials.header')
 
-    @include('partials.modal')
+    @include('front.partials.modal')
 
-    @include('partials.banner')
+    @include('front.partials.banner')
 
-    @include('partials.services')
+    @include('front.partials.services')
 
-    @include('partials.about')
+    @include('front.partials.about')
 
-    @include('partials.clients')
+    @include('front.partials.clients')
     
-    @include('partials.pricing')
+    @include('front.partials.pricing')
     
-    @include('partials.footer')
+    @include('front.partials.footer')
     
 @endsection

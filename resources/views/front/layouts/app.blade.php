@@ -15,7 +15,7 @@
     <title>Chain App Dev - App Landing Page HTML5 Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href={{ asset('vendor/bootstrap/css/bootstrap.min.css') }} rel="stylesheet">
+    <link href={{ asset('bootstrap/css/bootstrap.min.css') }} rel="stylesheet">
 
     <!--
 
@@ -39,8 +39,8 @@ https://templatemo.com/tm-570-chain-app-dev
     @yield('content')
 
     <!-- Scripts -->
-    <script src={{ asset('vendor/jquery/jquery.min.js') }}></script>
-    <script src={{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+    <script src={{ asset('jquery/jquery.min.js') }}></script>
+    <script src={{ asset('bootstrap/js/bootstrap.bundle.min.js') }}></script>
     <script src={{ asset('js/owl-carousel.js') }}></script>
     <script src={{ asset('js/animation.js') }}></script>
     <script src={{ asset('js/imagesloaded.js') }}></script>
