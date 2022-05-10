@@ -15,8 +15,8 @@
     </div>
     <div class="container">
         <div class="row">
+            @foreach ($services as $service)
             <div class="col-lg-3">
-                @foreach ($services as $service)
                 <div class="service-item {{ $service->service }}">
                     <div class="icon"></div>
                     <h4>{{ $service->title }}</h4>
@@ -25,9 +25,9 @@
                         <a href="#">{{ $service->btn_text }} <i class="{{ $service->btn_icon }}"></i></a>
                     </div>
                 </div>
-                @endforeach
             </div>
-            <div class="service-item first-service">
+            @endforeach
+            {{-- <div class="service-item first-service">
                 <div class="icon"></div>
                 <h4>App Maintenance</h4>
                 <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
@@ -66,7 +66,7 @@
                         <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

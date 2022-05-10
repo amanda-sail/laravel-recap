@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Welcome;
 use App\Http\Requests\StoreWelcomeRequest;
 use App\Http\Requests\UpdateWelcomeRequest;
+use App\Models\Banner;
+use App\Models\Client;
+use App\Models\Service;
 
 class WelcomeController extends Controller
 {
@@ -15,7 +18,11 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $banner = Banner::first();
+        $services = Service::all();
+        $clients = Client::all();
+
+        return view('welcome', compact('banner', 'services', 'clients'));
     }
 
     /**

@@ -15,7 +15,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        //
+        $banner = Banner::first();
+
+        return view('dashboard/banner.index', compact('banner'));
     }
 
     /**
