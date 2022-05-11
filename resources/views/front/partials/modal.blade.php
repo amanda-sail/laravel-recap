@@ -25,21 +25,26 @@
             </div>
 
             <div class="action_btns">
-                <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+                <div class="one_half">
+                    <a href="#" id="login_form" class="btn">Login</a>
+                </div>
+                <div class="one_half last">
+                    <a href="#" id="register_form" class="btn">Sign up</a>
+                </div>
             </div>
         </div>
 
         <!-- Username & Password Login form -->
         <div class="user_login">
-            <form>
+            <form method="POST" action="/login">
+                @csrf
                 <label>Email / Username</label>
-                <input type="text" />
+                <input type="text" name="email"/>
                 <br />
 
                 <label>Password</label>
-                <input type="password" />
-                <br />
+                <input type="password" name="password"/>
+                <br/>
 
                 <div class="checkbox">
                     <input id="remember" type="checkbox" />
@@ -47,10 +52,15 @@
                 </div>
 
                 <div class="action_btns">
-                    <div class="one_half"><a href="#" class="btn back_btn"><i
-                                class="fa fa-angle-double-left"></i>
-                            Back</a></div>
-                    <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                    <div class="one_half">
+                        <a href="#" class="btn back_btn">
+                            <i class="fa fa-angle-double-left"></i>
+                            Back
+                        </a>
+                    </div>
+                    <div class="one_half last">
+                        <button type="submit" class="btn btn_red">Login</button>
+                    </div>
                 </div>
             </form>
 
@@ -59,29 +69,43 @@
 
         <!-- Register Form -->
         <div class="user_register">
-            <form>
+            <form method="POST" action="/register">
+                @csrf
                 <label>Full Name</label>
-                <input type="text" />
+                <input type="text" name="name"/>
+                <br />
+
+                <label>Occupation</label>
+                <input type="text" name="position"/>
+                <br />
+
+                <label>Profile <Picture></Picture></label>
+                <input type="file" name="profile_pic"/>
                 <br />
 
                 <label>Email Address</label>
-                <input type="email" />
+                <input type="email" name="email"/>
                 <br />
 
                 <label>Password</label>
-                <input type="password" />
+                <input type="password" name="password"/>
                 <br />
 
                 <div class="checkbox">
-                    <input id="send_updates" type="checkbox" />
+                    <input id="remember_me" type="checkbox" name="remember"/>
                     <label for="send_updates">Send me occasional email updates</label>
                 </div>
 
                 <div class="action_btns">
-                    <div class="one_half"><a href="#" class="btn back_btn"><i
-                                class="fa fa-angle-double-left"></i>
-                            Back</a></div>
-                    <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                    <div class="one_half">
+                        <a href="#" class="btn back_btn">
+                            <i class="fa fa-angle-double-left"></i>
+                            Back
+                        </a>
+                    </div>
+                    <div class="one_half last">
+                        <button type="submit" class="btn btn_red">Register</button>
+                    </div>
                 </div>
             </form>
         </div>

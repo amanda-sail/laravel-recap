@@ -17,8 +17,19 @@
                         <li class="scroll-to-section"><a href="#pricing">Pricing</a></li>
                         <li class="scroll-to-section"><a href="#newsletter">Newsletter</a></li>
                         <li>
-                            <div class="gradient-button"><a id="modal_trigger" href="#modal"><i
-                                        class="fa fa-sign-in-alt"></i> Sign In Now</a></div>
+                            <div class="gradient-button">
+                                @auth
+                                    <a id="" href="#modal">
+                                        <i class="fa fa-sign-out-alt"></i> 
+                                        Log Out
+                                    </a>
+                                @else
+                                    <a id="modal_trigger" href="#modal">
+                                        <i class="fa fa-sign-in-alt"></i> 
+                                        Log In
+                                    </a>
+                                @endauth
+                            </div>
                         </li>
                     </ul>
                     <a class='menu-trigger'>

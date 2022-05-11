@@ -6,8 +6,7 @@
                     <h4>Amazing <em>Services & Features</em> for you</h4>
                     <img src="assets/images/heading-line-dec.png" alt="">
                     <p>If you need the greatest collection of HTML templates for your business, please visit <a
-                            rel="nofollow" href="https://www.toocss.com/" target="_blank">TooCSS</a> Blog. If you
-                        need to have a contact form PHP script, go to <a href="https://templatemo.com/contact"
+                            rel="nofollow" href="https://www.toocss.com/" target="_blank">TooCSS</a> Blog. If you need to have a contact form PHP script, go to <a href="https://templatemo.com/contact"
                             target="_parent">our contact page</a> for more information.</p>
                 </div>
             </div>
@@ -16,57 +15,27 @@
     <div class="container">
         <div class="row">
             @foreach ($services as $service)
-            <div class="col-lg-3">
-                <div class="service-item {{ $service->service }}">
-                    <div class="icon"></div>
-                    <h4>{{ $service->title }}</h4>
-                    <p>{{ $service->description }}</p>
-                    <div class="text-button">
-                        <a href="#">{{ $service->btn_text }} <i class="{{ $service->btn_icon }}"></i></a>
+                <div class="col-lg-3">
+                    <div class="service-item {{ $service->service }}">
+                        <div class="icon"></div>
+                        <h4>{{ $service->title }}</h4>
+                        <p>{!! str_replace(
+                            ['(', ')'],
+                            [
+                                '<a rel="nofollow"
+                                                href="https://paypal.me/templatemo" target="_blank">',
+                                '</a>',
+                            ],
+                            $service->description,
+                            ) !!}
+                        </p>
+
+                        <div class="text-button">
+                            <a href="#">{{ $service->btn_text }} <i class="{{ $service->btn_icon }}"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
-            {{-- <div class="service-item first-service">
-                <div class="icon"></div>
-                <h4>App Maintenance</h4>
-                <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
-                <div class="text-button">
-                    <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="service-item second-service">
-                    <div class="icon"></div>
-                    <h4>Rocket Speed of App</h4>
-                    <p>You are allowed to use the Chain App Dev HTML template. Feel free to modify or edit this layout.</p>
-                    <div class="text-button">
-                        <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="service-item third-service">
-                    <div class="icon"></div>
-                    <h4>Multi Workflow Idea</h4>
-                    <p>If this template is beneficial for your work, please support us <a rel="nofollow"
-                            href="https://paypal.me/templatemo" target="_blank">a little via PayPal</a>. Thank you.
-                    </p>
-                    <div class="text-button">
-                        <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="service-item fourth-service">
-                    <div class="icon"></div>
-                    <h4>24/7 Help & Support</h4>
-                    <p>Lorem ipsum dolor consectetur adipiscing elit sedder williamsburg photo booth quinoa and fashion axe.</p>
-                    <div class="text-button">
-                        <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
 </div>

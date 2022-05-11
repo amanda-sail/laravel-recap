@@ -32,8 +32,7 @@ class ServiceSeeder extends Seeder
         DB::table('services')->insert([
             'service' => 'third-service',
             'title' => 'Multi Workflow Idea',
-            'description' => 'If this template is beneficial for your work, please support us <a rel="nofollow"
-            href="https://paypal.me/templatemo" target="_blank">a little via PayPal</a>. Thank you.',
+            'description' => 'If this template is beneficial for your work, please support us (a little via PayPal). Thank you.',
             'btn_text' => 'Read More',
             'btn_icon' => 'fa fa-arrow-right',
         ]);

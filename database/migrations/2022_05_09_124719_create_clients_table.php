@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->string('class');
+            $table->string('name');
+            $table->string('date');
+            $table->string('category');
+            $table->string('rating');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

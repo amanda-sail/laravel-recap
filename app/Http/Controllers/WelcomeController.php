@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateWelcomeRequest;
 use App\Models\Banner;
 use App\Models\Client;
 use App\Models\Service;
+use App\Models\User;
 
 class WelcomeController extends Controller
 {
@@ -18,11 +19,12 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+        $users = User::all();
         $banner = Banner::first();
         $services = Service::all();
         $clients = Client::all();
 
-        return view('welcome', compact('banner', 'services', 'clients'));
+        return view('welcome', compact('users', 'banner', 'services', 'clients'));
     }
 
     /**
