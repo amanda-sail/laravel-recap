@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Service;
+use App\Policies\ClientPolicy;
+use App\Policies\ServicePolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,6 +28,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+
+        Gate::define('create-service', [ServicePolicy::class, 'create']);
+        Gate::define('edit-service', [ServicePolicy::class, 'update']);
+
+        Gate::define('create-client', [ClientPolicy::class, 'create']);
+        Gate::define('edit-client', [ClientPolicy::class, 'update']);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ServiceController extends Controller
 {
@@ -28,6 +29,10 @@ class ServiceController extends Controller
      */
     public function create()
     {
+        if (! Gate::allows('create-service')) {
+            abort(403);
+        }
+
         return view('back/services.create')->with('message', 'Successfully created.');
     }
 
@@ -40,16 +45,15 @@ class ServiceController extends Controller
     public function store(StoreServiceRequest $request)
     {
         $validated = $request->validate([
-            'service' => 'required',
+            'icon' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'btn_text' => 'required',
-            'btn_icon' => 'required',
         ]);
 
         $this->authorize('create', Service::class);
 
         $service = new Service;
+        $service->icon = $request->icon;
         $service->service =  $request->service;
         $service->title = $request->title;
         $service->description = $request->description;
@@ -77,8 +81,11 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,Service $service)
+    public function edit(Request $request, Service $service)
     {
+        if (! Gate::allows('edit-service', $service)) {
+            abort(403);
+        }
         if ($service->id !== decrypt($request->_verif)) {
             abort(403);
         }
@@ -96,15 +103,14 @@ class ServiceController extends Controller
     public function update(UpdateServiceRequest $request, Service $service)
     {
         $validated = $request->validate([
-            'service' => 'required',
+            'icon' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'btn_text' => 'required',
-            'btn_icon' => 'required',
         ]);
 
         $this -> authorize('update', [$service]);
 
+        $service->icon = $request->icon;
         $service->service = $request->service;
         $service->title = $request->title;
         $service->description = $request->description;

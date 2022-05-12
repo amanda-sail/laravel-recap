@@ -7,6 +7,7 @@ use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ClientController extends Controller
 {
@@ -29,6 +30,10 @@ class ClientController extends Controller
      */
     public function create()
     {
+        if (! Gate::allows('create-client')) {
+            abort(403);
+        }
+
         return view('back/clients.create')->with('message', 'Successfully created.');
     }
 
@@ -84,6 +89,9 @@ class ClientController extends Controller
      */
     public function edit(Request $request, Client $client)
     {
+        if (! Gate::allows('edit-client', $client)) {
+            abort(403);
+        }
         if ($client->id !== decrypt($request->_verif)) {
             abort(403);
         }

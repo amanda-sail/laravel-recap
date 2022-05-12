@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('icon');
             $table->string('title');
             $table->string('description');
-            $table->string('btn_text');
-            $table->string('btn_icon');
+            $table->string('btn_text')->nullable();
+            $table->string('btn_icon')->nullable();
             $table->timestamps();
         });
     }
