@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('header');
             $table->string('description');
-            $table->string('apple_btn');
-            $table->string('playstore_btn');
-            $table->string('apple_icon');
-            $table->string('playstore_icon');
+            $table->string('apple_btn')->nullable();
+            $table->string('playstore_btn')->nullable();
+            $table->string('apple_icon')->nullable();
+            $table->string('playstore_icon')->nullable();
             $table->string('img');
             $table->timestamps();
         });

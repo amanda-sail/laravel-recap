@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Service;
+use App\Policies\BannerPolicy;
 use App\Policies\ClientPolicy;
 use App\Policies\ServicePolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -34,5 +35,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('create-client', [ClientPolicy::class, 'create']);
         Gate::define('edit-client', [ClientPolicy::class, 'update']);
+        
+        Gate::define('edit-banner', [BannerPolicy::class, 'update']);
     }
 }

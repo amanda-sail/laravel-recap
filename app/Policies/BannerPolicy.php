@@ -53,7 +53,7 @@ class BannerPolicy
      */
     public function update(User $user, Banner $banner)
     {
-        //
+        return $user->role_id === 1;
     }
 
     /**

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use App\Http\Requests\StoreBannerRequest;
 use App\Http\Requests\UpdateBannerRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class BannerController extends Controller
 {
@@ -17,7 +19,7 @@ class BannerController extends Controller
     {
         $banner = Banner::first();
 
-        return view('dashboard/banner.index', compact('banner'));
+        return view('back/banner.index', compact('banner'));
     }
 
     /**
@@ -58,9 +60,16 @@ class BannerController extends Controller
      * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit(Request $request, Banner $banner)
     {
-        //
+        if (! Gate::allows('edit-banner', $banner)) {
+            abort(403);
+        }
+        if ($banner->id !== decrypt($request->_verif)) {
+            abort(403);
+        }
+
+        return view('back/banner.edit', compact('banner'))->with('message', 'Successfully edited.');
     }
 
     /**
@@ -72,7 +81,23 @@ class BannerController extends Controller
      */
     public function update(UpdateBannerRequest $request, Banner $banner)
     {
-        //
+        $validated = $request->validate([
+            'header' => 'required',
+            'description' => 'required',
+            'img' => 'required',
+        ]);
+
+        $this -> authorize('update', [$banner]);
+
+        $banner->header = $request->header;
+        $banner->description = $request->description;
+        $banner->apple_btn = $request->apple_btn;
+        $banner->playstore_btn = $request->playstore_btn;
+        $banner->apple_icon = $request->apple_icon;
+        $banner->playstore_icon = $request->playstore_icon;
+        $banner->img = $request->img;
+
+        return redirect()->route('banner.index')->with('message', 'Successfully updated.');
     }
 
     /**
