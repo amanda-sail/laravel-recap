@@ -43,22 +43,22 @@
                             </div>
                             <div class="col-lg-5">
                                 <ul class="nacc">
-                                    @foreach ($users as $user)
-                                        <li class="{{ $user->class }}">
+                                    @foreach ($clients as $client)
+                                        <li class="{{ $client->class }}">
                                             <div>
                                                 <div class="thumb">
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="client-content">
                                                                 <img src={{ asset('images/quote.png') }} alt="">
-                                                                <p>{{ $user->comment }}</p>
+                                                                <p>{{ $client->comment }}</p>
                                                             </div>
                                                             <div class="down-content">
-                                                                <img src={{ asset($user->profile_pic ) }}
+                                                                <img src={{ asset($client->profile_pic ) }}
                                                                     alt="">
                                                                 <div class="right-content">
-                                                                    <h4>{{ $user->name }}</h4>
-                                                                    <span>{{ $user->position }}</span>
+                                                                    <h4>{{ $client->name }}</h4>
+                                                                    <span>{{ $client->position }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -17,61 +17,16 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'class' => 'active',
-            'name' => 'David Martino',
-            'comment' => '“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”',
-            'position' => 'CEO of David Company',
-            'profile_pic' => 'images/client-image.jpg',
-            'email' => 'David@email.com',
-            'password' => Hash::make('David'),
-        ]);
-        DB::table('users')->insert([
-            'class' => '',
-            'name' => 'Jake H. Nyo',
-            'comment' => '“CTO, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”',
-            'position' => 'CTO of Digital Company',
-            'profile_pic' => 'images/client-image.jpg',
-            'email' => 'Jake@email.com',
-            'password' => Hash::make('Jake'),
-        ]);
-        DB::table('users')->insert([
-            'class' => '',
-            'name' => 'May C.',
-            'comment' => '“May, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”',
-            'position' => 'Founder of Catherina Co.',
-            'profile_pic' => 'images/client-image.jpg',
-            'email' => 'May@email.com',
-            'password' => Hash::make('May'),
-        ]);
-        
-        DB::table('users')->insert([
-            'class' => '',
-            'name' => 'Random Staff',
-            'comment' => '“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”',
-            'position' => 'Manager, Digital Company',
-            'profile_pic' => 'images/client-image.jpg',
-            'email' => 'Random@email.com',
-            'password' => Hash::make('Random'),
-        ]);
-
-        DB::table('users')->insert([
-            'class' => '',
-            'name' => 'Mark Am',
-            'comment' => '“Mark, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”',
-            'position' => 'CTO, Amber Do Company',
-            'profile_pic' => 'images/client-image.jpg',
-            'email' => 'Mark@email.com',
-            'password' => Hash::make('Mark'),
-        ]);
-
-        DB::table('users')->insert([
-            'class' => '',
-            'name' => 'Mark Am',
-            'comment' => '“Mark, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”',
-            'position' => 'CTO, Amber Do Company',
-            'profile_pic' => 'images/client-image.jpg',
+            'role_id' => 1,
+            'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make("admin"),
+        ]);
+        DB::table('users')->insert([
+            'role_id' => 2,
+            'name' => 'webmaster',
+            'email' => 'webmaster@webmaster.com',
+            'password' => Hash::make('webmaster'),
         ]);
     }
 }

@@ -19,10 +19,13 @@
                         <li>
                             <div class="gradient-button">
                                 @auth
-                                    <a id="" href="#modal">
-                                        <i class="fa fa-sign-out-alt"></i> 
-                                        Log Out
-                                    </a>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type='submit' href="#modal">
+                                            <i class="fa fa-sign-out-alt"></i> 
+                                            Log Out
+                                        </button>
+                                    </form>            
                                 @else
                                     <a id="modal_trigger" href="#modal">
                                         <i class="fa fa-sign-in-alt"></i> 

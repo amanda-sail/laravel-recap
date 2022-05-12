@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('class');
+            $table->string('class')->default('');
+            $table->string('profile_pic');
             $table->string('name');
+            $table->string('position');
             $table->string('date');
             $table->string('category');
             $table->string('rating');
-            $table->foreignId('user_id')->constrained();
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }
