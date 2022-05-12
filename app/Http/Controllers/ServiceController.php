@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
@@ -15,7 +16,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+
+        return view('back/services.index', compact('services'));
     }
 
     /**
@@ -25,7 +28,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('back/services.create')->with('message', 'Successfully created.');
     }
 
     /**
@@ -36,7 +39,25 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        $validated = $request->validate([
+            'service' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'btn_text' => 'required',
+            'btn_icon' => 'required',
+        ]);
+
+        $this->authorize('create', Service::class);
+
+        $service = new Service;
+        $service->service =  $request->service;
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->btn_text = $request->btn_text;
+        $service->btn_icon = $request->btn_icon;
+        $service->save();
+
+        return redirect()->route('services.index')->with('message', 'Successfully created.');
     }
 
     /**
@@ -56,9 +77,13 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Request $request,Service $service)
     {
-        //
+        if ($service->id !== decrypt($request->_verif)) {
+            abort(403);
+        }
+
+        return view('back/services.edit', compact('service'))->with('message', 'Successfully edited.');
     }
 
     /**
@@ -70,7 +95,23 @@ class ServiceController extends Controller
      */
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        //
+        $validated = $request->validate([
+            'service' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'btn_text' => 'required',
+            'btn_icon' => 'required',
+        ]);
+
+        $this -> authorize('update', [$service]);
+
+        $service->service = $request->service;
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->btn_text = $request->btn_text;
+        $service->btn_icon = $request->btn_icon;
+
+        return redirect()->route('services.index')->with('message', 'Successfully updated.');
     }
 
     /**
@@ -79,8 +120,16 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Request $request, Service $service)
     {
-        //
+        if ($service->id !== decrypt($request->_verif)) {
+            abort(403);
+        }
+
+        $this -> authorize('delete', [$service]);
+
+        $service->delete();
+
+        return redirect()->route('services.index')->with('message', 'Successfully deleted.');
     }
 }
