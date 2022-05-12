@@ -1,7 +1,7 @@
 @extends('back.layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container pt-4">
         {{-- Update Successful --}}
         @if (session()->has('message'))
             <div class="alert alert-success">
@@ -20,6 +20,7 @@
         @endif
         
         <div class="row">
+            <caption>New Client Testimonial</caption>
             <form action="{{ route("clients.store") }}" method="POST" enctype="multipart/form-data">
 				@csrf
                 {{-- Profil Pic --}}

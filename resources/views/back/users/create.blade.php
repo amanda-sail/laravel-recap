@@ -1,7 +1,7 @@
 @extends('back.layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container pt-4">
 
         @if (session()->has('message'))
             <div class="alert alert-success">
@@ -20,6 +20,7 @@
         @endif
  
         <div class="row">
+            <caption>New User</caption>
             <form action="{{ route("user.store") }}" method="POST" enctype="multipart/form-data">
 				@csrf
 				<div class="mb-3 col-12 col-md-6">
@@ -30,10 +31,10 @@
 					<label for="email" class="form-label">Email</label>
 					<input type="text" class="form-control" id="email" name="email" value="old('email')">
 				</div>
-                {{-- <div class="mb-3 col-12 col-md-6">
-					<label for="role_id" class="form-label">role</label>
+                <div class="mb-3 col-12 col-md-6">
+					<label for="role_id" class="form-label">Role</label>
 					<input type="text" class="form-control" id="role_id" name="role_id">
-				</div> --}}
+				</div>
 
                 <button type="submit" class="btn btn-info">Submit</button>
             </form>
