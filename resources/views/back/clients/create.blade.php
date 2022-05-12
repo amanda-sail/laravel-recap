@@ -63,7 +63,7 @@
                 {{-- Comment --}}
 				<div class="mb-3 col-12 col-md-6">
 					<label for="comment" class="form-label">Comment</label>
-                    <input type="text" class="form-control" id="comment" name="comment" value="{{ old('comment') }}">
+                    <textarea type="text" class="form-control" id="comment" name="comment" rows="5">@if(old('comment') ) {{ old('comment') }} @endif</textarea>
 				</div>
                 {{-- Submit --}}
                 <button type="submit" class="btn btn-info">Submit</button>

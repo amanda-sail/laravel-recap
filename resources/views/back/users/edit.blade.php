@@ -33,8 +33,8 @@
                     <input type="text" class="form-control" id="email" name="email" value="@if(old('email') ) {{ old('email') }} @else {{ $user->email }} @endif" >
 				</div>
 				<div class="mb-3 col-12 col-md-6">
-					<label for="role" class="form-label">Role</label>
-                    <input type="text" class="form-control" id="role" name="role" value="@if(old('role') ) {{ old('role') }} @else {{ $user->role }} @endif" >
+					<label for="role_id" class="form-label">Role</label>
+                    <input type="text" class="form-control" id="role_id" name="role_id" value="@if(old('role_id') ) {{ old('role_id') }} @else {{ $user->role_id }} @endif" >
 				</div>
 
                 <button type="submit" class="btn btn-info">Submit</button>
