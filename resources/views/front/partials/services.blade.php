@@ -17,7 +17,7 @@
             @foreach ($services as $service)
                 <div class="col-lg-3">
                     <div class="service-item {{ $service->service }}">
-                        <div class="icon"></div>
+                        <div class="icon" style="background-image: url({{ asset('images/' . $service->icon) }})"></div>
                         <h4>{{ $service->title }}</h4>
                         <p>{!! str_replace(
                             ['(', ')'],
@@ -29,7 +29,6 @@
                             $service->description,
                             ) !!}
                         </p>
-
                         <div class="text-button">
                             <a href="#">{{ $service->btn_text }} <i class="{{ $service->btn_icon }}"></i></a>
                         </div>

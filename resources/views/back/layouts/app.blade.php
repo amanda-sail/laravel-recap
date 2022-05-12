@@ -9,7 +9,7 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset("bootstrap/css/bootstrap.min.css") }}">
+    <link href={{ asset("bootstrap/css/bootstrap.min.css") }} rel="stylesheet">
     <!-- CSS Link -->
     <link rel="stylesheet" href={{ asset('css/back_nav.css') }}>
 </head>
@@ -70,9 +70,11 @@
             </li>
         </ul>
     </div>
+    
     <section class="home-section">
         @yield('content')
     </section>
+
     <script>
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");

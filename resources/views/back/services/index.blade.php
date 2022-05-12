@@ -26,7 +26,7 @@
                 @foreach ($services as $service)
                     <tr class="align-middle">
                         <th scope="row">{{ $service->id }}</th>
-                        <td><img src="{{ asset($service->service) }}" alt="" style="width: 50px"></td>
+                        <td><img src="{{ asset('images/' . $service->icon) }}" alt=""></td>
                         <td>{{ $service->title }}</td>
                         <td>{{ $service->description }}</td>
                         <td>{{ $service->btn_text }}</td>
@@ -55,7 +55,7 @@
         </table>
         {{-- Create Button --}}
         <div class="w-100 text-center">
-            <a type="button" class="btn btn-success mb-2" href="{{ route ('services.create', $services) }}">Create New Service</a>
+            <a type="button" class="btn btn-success mb-2" href="{{ route ('services.create', $service) }}">Create New Service</a>
         </div>
     </div>
 @endsection
