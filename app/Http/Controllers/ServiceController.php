@@ -53,8 +53,8 @@ class ServiceController extends Controller
         $this->authorize('create', Service::class);
 
         $service = new Service;
+        $service->class = $request->class;
         $service->icon = $request->icon;
-        $service->service =  $request->service;
         $service->title = $request->title;
         $service->description = $request->description;
         $service->btn_text = $request->btn_text;
@@ -110,12 +110,14 @@ class ServiceController extends Controller
 
         $this -> authorize('update', [$service]);
 
+        $service->class = $request->class;
         $service->icon = $request->icon;
-        $service->service = $request->service;
         $service->title = $request->title;
         $service->description = $request->description;
         $service->btn_text = $request->btn_text;
         $service->btn_icon = $request->btn_icon;
+
+        $service->save();
 
         return redirect()->route('services.index')->with('message', 'Successfully updated.');
     }

@@ -119,13 +119,18 @@ class ClientController extends Controller
 
         $this -> authorize('update', [$client]);
 
-        $client->profile_pic = $request->profile_pic;
+        if ($request->profile_pic != null) {
+            $client->profile_pic = 'storage/img/' . $request->profile_pic->hashName();
+            $request->profile_pic->storePublicly('img', 'public');
+        }
         $client->name = $request->name;
         $client->position = $request->position;
         $client->date = $request->date;
         $client->category = $request->category;
         $client->rating = $request->rating;
         $client->comment = $request->comment;
+
+        $client->save();
 
         return redirect()->route('clients.index')->with('message', 'Successfully updated.');
     }

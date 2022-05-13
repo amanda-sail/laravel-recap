@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +28,12 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 /* Dashboard Routes */
-Route::get('dashboard/banner', [BannerController::class, 'index'])->name('banner.index');
-Route::get('dashboard/banner/{}', [BannerController::class, 'edit'])->name('banner.edit');
-Route::post('dashboard/banner/{}', [BannerController::class, 'update'])->name('banner.update');
+Route::middleware('admin')->group(function () {   
+    Route::get('dashboard/banner/{}', [BannerController::class, 'edit'])->name('banner.edit');
+    Route::post('dashboard/banner/{}', [BannerController::class, 'update'])->name('banner.update');
+});
+
+Route::get('dashboard/banner', [BannerController::class, 'index'])->middleware(['auth'])->name('banner.index');
 Route::resource('dashboard/services', ServiceController::class);
 Route::resource('dashboard/clients', ClientController::class);
 Route::resource('dashboard/users', UserController::class);

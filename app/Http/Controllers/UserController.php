@@ -18,6 +18,9 @@ class UserController extends Controller
 
     public function update(Request $request, User $user) {
         $user->role_id = $request->role_id;
+        $user->name = $request->name;
+        $user->email = $request->email;
+
         $user->save();
 
         return redirect()->route("users.index")->with("message", "Successfully updated.");

@@ -27,7 +27,7 @@
                 {{-- Profil Pic --}}
 				<div class="mb-3 col-12 col-md-6">
 					<label for="profile_pic" class="form-label">Photo</label>
-                    <input type="file" class="form-control" id="profile_pic" name="profile_pic" value="@if(old('profile_pic') ) {{ old('profile_pic') }} @else {{ $client->profile_pic }} @endif">
+                    <input type="file" class="form-control" id="profile_pic" name="profile_pic">
 				</div>
                 {{-- Commenter --}}
 				<div class="mb-3 col-12 col-md-6">

@@ -27,42 +27,62 @@
                 {{-- Icon --}}
                 <label for="icon" class="form-label">Icon</label>
                 <div class="d-flex">
+                    {{-- PHP with Batou --}}
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="icon" value="images/service-icon-01.png" 
-                        @if (old('icon') == 'service-icon-01.png') selected @else
-                        {{ $service->icon == 'service-icon-01.png' ? 'checked' : '' }}
+                        <input class="form-check-input" type="radio" name="class" value="first-service" @if (old('class') == "first-service" ) checked 
+                        @else {{ $service->class == "first-service" ? 'checked' : '' }}
                         @endif>
+                        
                         <label class="form-check-label me-5" for="icon">
-                            <img src="{{ asset('images/service-icon-01.png') }}" alt="">
+                            <div class="first-service">
+                                <div class="icon"></div>
+                            </div>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="icon" value="images/service-icon-02.png" 
-                        @if (old('icon') == 'service-icon-02.png') selected @else
-                        {{ $service->icon == 'service-icon-02.png' ? 'checked' : '' }}
+                        <input class="form-check-input" type="radio" name="class" value="second-service" 
+                        @if (old('class') == 'second-service') checked 
+                        @else {{ $service->class == 'second-service' ? 'checked' : '' }}
                         @endif>
                         <label class="form-check-label me-5" for="icon">
-                            <img src="{{ asset('images/service-icon-02.png') }}" alt="">
+                            <div class="second-service">
+                                <div class="icon"></div>
+                            </div>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="icon" value="images/service-icon-03.png" 
-                        @if (old('icon') == 'service-icon-03.png') selected @else
-                        {{ $service->icon == 'service-icon-03.png' ? 'checked' : '' }}
+                        <input class="form-check-input" type="radio" name="class" value="third-service" 
+                        @if (old('class') == 'third-service') checked 
+                        @else {{ $service->class == 'third-service' ? 'checked' : '' }}
                         @endif>
                         <label class="form-check-label me-5" for="icon">
-                            <img src="{{ asset('images/service-icon-03.png') }}" alt="">
+                            <div class="third-service">
+                                <div class="icon"></div>
+                            </div>
                         </label>
                     </div>
                     <div class="form-check">
+                        <input class="form-check-input" type="radio" name="class" value="fourth-service" 
+                        @if (old('class') == 'fourth-service') checked 
+                        @else {{ $service->class == 'fourth-service' ? 'checked' : '' }}
+                        @endif>
+                        <label class="form-check-label me-5" for="icon">
+                            <div class="fourth-service">
+                                <div class="icon"></div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    {{-- HTML with Imane --}}
+                    {{-- <div class="form-check">
                         <input class="form-check-input" type="radio" name="icon" value="images/service-icon-04.png" 
-                        @if (old('icon') == 'service-icon-04.png') selected @else
-                        {{ $service->icon == 'service-icon-04.png' ? 'checked' : '' }}
+                        @if (old('icon') == 'images/service-icon-04.png') checked @else
+                        {{ $service->icon == 'images/service-icon-04.png' ? 'checked' : '' }}
                         @endif>
                         <label class="form-check-label me-5" for="icon">
                             <img src="{{ asset('images/service-icon-04.png') }}" alt="">
                         </label>
-                    </div>
+                    </div> --}}
                 </div>
 
                 {{-- Service --}}

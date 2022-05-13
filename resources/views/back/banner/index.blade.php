@@ -30,12 +30,14 @@
 
                     {{-- Edit Button --}}
                     <td>
-                        <form action="{{ route('banner.edit', $banner) }}" method="GET">
-                            @csrf
-                            <input hidden type="text" name="_verif" value="{{ encrypt($banner->id) }}">
+                        @can('update', $banner)
+                            <form action="{{ route('banner.edit', $banner) }}" method="GET">
+                                @csrf
+                                <input hidden type="text" name="_verif" value="{{ encrypt($banner->id) }}">
 
-                            <button type="submit" class="btn btn-primary mb-2">Edit</button>
-                        </form>
+                                <button type="submit" class="btn btn-primary mb-2">Edit</button>
+                            </form>
+                        @endcan
                     </td>
                 </tr>
             </tbody>

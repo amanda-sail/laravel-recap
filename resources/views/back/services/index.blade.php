@@ -26,27 +26,34 @@
                 @foreach ($services as $service)
                     <tr class="align-middle">
                         <th scope="row">{{ $service->id }}</th>
-                        <td><img src="{{ asset('images/' . $service->icon) }}" alt=""></td>
+                        {{-- PHP with Batou --}}
+                        <td>
+                            <div class="{{ $service->class }}">
+                                <div class="icon"></div>
+                            </div>
+                        </td>
+                        {{-- HTML with Imane --}}
+                        {{-- <td><img src="{{ asset($service->icon) }}" alt=""></td> --}}
                         <td>{{ $service->title }}</td>
                         <td>{{ $service->description }}</td>
                         <td>{{ $service->btn_text }}</td>
-                        <td>{{ $service->btn_icon }}</td>
+                        <td><i class="{{ $service->btn_icon }}"></i></td>
+
                         {{-- Edit Button --}}
                         <td>
                             <form action="{{ route('services.edit', $service) }}" method="GET">
                                 @csrf
                                 <input hidden type="text" name="_verif" value="{{ encrypt($service->id) }}">
-
                                 <button type="submit" class="btn btn-primary mb-2">Edit</button>
                             </form>
                         </td>
+
                         {{-- Delete Button --}}
                         <td>
                             <form action="{{ route('services.destroy', $service) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <input hidden type="text" name="_verif" value="{{ encrypt($service->id) }}">
-
                                 <button type="submit" class="btn btn-danger mb-2">Delete</button>
                             </form>
                         </td>
@@ -54,6 +61,7 @@
                 @endforeach
             </tbody>
         </table>
+
         {{-- Create Button --}}
         <div class="w-100 text-center">
             <a type="button" class="btn btn-success mb-2" href="{{ route ('services.create', $service) }}">Create New Service</a>

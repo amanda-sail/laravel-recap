@@ -16,8 +16,11 @@
         <div class="row">
             @foreach ($services as $service)
                 <div class="col-lg-3">
-                    <div class="service-item {{ $service->service }}">
-                        <div class="icon" style="background-image: url({{ asset('images/' . $service->icon) }})"></div>
+                    <div class="service-item {{ $service->class }}">
+                        <div class="icon" 
+                        {{-- HTML with Imane --}}
+                        {{-- style="background-image: url({{ asset($service->icon) }})" --}}
+                        ></div>
                         <h4>{{ $service->title }}</h4>
                         <p>{!! str_replace(
                             ['(', ')'],

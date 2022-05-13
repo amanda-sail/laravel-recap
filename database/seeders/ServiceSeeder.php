@@ -16,7 +16,7 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         DB::table('services')->insert([
-            'service' => 'first-service',
+            'class' => 'first-service',
             'icon' => 'service-icon-01.png',
             'title' => 'App Maintenance',
             'description' => 'You are not allowed to redistribute this template ZIP file on any other website.',
@@ -24,7 +24,7 @@ class ServiceSeeder extends Seeder
             'btn_icon' => 'fa fa-arrow-right',
         ]);
         DB::table('services')->insert([
-            'service' => 'second-service',
+            'class' => 'second-service',
             'icon' => 'service-icon-02.png',
             'title' => 'Rocket Speed of App',
             'description' => 'You are allowed to use the Chain App Dev HTML template. Feel free to modify or edit this layout.',
@@ -32,7 +32,7 @@ class ServiceSeeder extends Seeder
             'btn_icon' => 'fa fa-arrow-right',
         ]);
         DB::table('services')->insert([
-            'service' => 'third-service',
+            'class' => 'third-service',
             'icon' => 'service-icon-03.png',
             'title' => 'Multi Workflow Idea',
             'description' => 'If this template is beneficial for your work, please support us (a little via PayPal). Thank you.',
@@ -40,7 +40,7 @@ class ServiceSeeder extends Seeder
             'btn_icon' => 'fa fa-arrow-right',
         ]);
         DB::table('services')->insert([
-            'service' => 'fourth-service',
+            'class' => 'fourth-service',
             'icon' => 'service-icon-04.png',
             'title' => '24/7 Help & Support',
             'description' => 'Lorem ipsum dolor consectetur adipiscing elit sedder williamsburg photo booth quinoa and fashion axe.',

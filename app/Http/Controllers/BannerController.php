@@ -96,6 +96,8 @@ class BannerController extends Controller
         $banner->apple_icon = $request->apple_icon;
         $banner->playstore_icon = $request->playstore_icon;
         $banner->img = $request->img;
+        
+        $banner->save();
 
         return redirect()->route('banner.index')->with('message', 'Successfully updated.');
     }

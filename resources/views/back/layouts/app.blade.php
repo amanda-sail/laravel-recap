@@ -12,9 +12,37 @@
     <link href={{ asset("bootstrap/css/bootstrap.min.css") }} rel="stylesheet">
     <!-- CSS Link -->
     <link rel="stylesheet" href={{ asset('css/back_nav.css') }}>
+    {{-- Font Awesome Link --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
+
+    <style>
+         .first-service .icon {
+        background-image: url({{ asset("images/service-icon-01.png") }});
+        }
+
+        .second-service .icon {
+        background-image: url({{ asset("images/service-icon-02.png") }});
+        }
+
+        .third-service .icon {
+        background-image: url({{ asset("images/service-icon-03.png") }});
+        }
+
+        .fourth-service .icon {
+        background-image: url({{ asset("images/service-icon-04.png") }});
+        }
+
+        .icon {
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        }
+    </style>
+
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
@@ -59,11 +87,13 @@
                 <div class="profile-details">
                     <!--<img src="profile.jpg" alt="profileImg">-->
                     <div class="name_job">
-                        <div class="name">Log Out</div>
+                        <div class="name">Return</div>
+                        <div class="job">to Front</div>
                         {{-- <div class="name">Prem Shahi</div>
                         <div class="job">Web designer</div> --}}
                     </div>
                 </div>
+                
                 <a href="/">
                     <i class='bx bx-log-out' id="log_out"></i>
                 </a>
