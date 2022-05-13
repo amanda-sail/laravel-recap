@@ -43,6 +43,12 @@ https://templatemo.com/tm-570-chain-app-dev
             {{ session()->get('success') }}
         </div>
     @endif
+    {{-- Fail Message --}}
+    @if (session()->has('fail'))
+        <div class="alert alert-danger">
+            {{ session()->get('fail') }}
+        </div>
+    @endif
 
     @yield('content')
 

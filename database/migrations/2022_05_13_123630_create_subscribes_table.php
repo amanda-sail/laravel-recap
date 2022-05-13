@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('subscribes', function (Blueprint $table) {
             $table->id();
-            $table->string('class');
-            $table->string('icon')->nullable();
-            $table->string('title');
-            $table->string('description');
-            $table->string('btn_text')->nullable();
-            $table->string('btn_icon')->nullable();
+            $table->string('email_address');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('subscribes');
     }
 };

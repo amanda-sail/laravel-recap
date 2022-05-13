@@ -83,6 +83,20 @@
                 </a>
                 <span class="tooltip">Users</span>
             </li>
+            <li>
+                <a href="{{ route('newsletter.index') }}">
+                    <i class='bx bx-news'></i>
+                    <span class="links_name">Newsletter Subscribers</span>
+                </a>
+                <span class="tooltip">Newsletter Subscribers</span>
+            </li>
+            <li>
+                <a href="{{ route('emails.index') }}">
+                    <i class='bx bx-envelope'></i>
+                    <span class="links_name">Email Templates</span>
+                </a>
+                <span class="tooltip">Email Templates</span>
+            </li>
             <li class="profile">
                 <div class="profile-details">
                     <!--<img src="profile.jpg" alt="profileImg">-->
