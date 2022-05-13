@@ -36,6 +36,14 @@ https://templatemo.com/tm-570-chain-app-dev
 </head>
 
 <body>
+    
+    {{-- Success Message --}}
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
+
     @yield('content')
 
     <!-- Scripts -->
